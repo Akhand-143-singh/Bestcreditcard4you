@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Best Credit Cards</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #1e1e1e; color: white; padding: 20px; text-align: center; }
+    .card { background: white; margin: 20px; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .btn { background: green; color: white; padding: 10px; border: none; border-radius: 5px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Top Credit Card Offers</h1>
+  </header>
+  <div class="card">
+    <h2>SBI Card</h2>
+    <p>5% cashback on online shopping</p>
+    <a href="#" class="btn">Apply Now</a>
+  </div>
+</body>
+</html>
