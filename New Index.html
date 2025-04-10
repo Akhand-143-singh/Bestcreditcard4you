@@ -1,0 +1,55 @@
+import { useState } from 'react'; import { Card, CardContent } from '@/components/ui/card'; import { Button } from '@/components/ui/button'; import { Input } from '@/components/ui/input'; import { Textarea } from '@/components/ui/textarea';
+
+const creditCards = [ { bank: 'HDFC Bank', img: '/cards/hdfc.jpg' }, { bank: 'SBI Bank', img: '/cards/sbi.jpg' }, { bank: 'ICICI Bank', img: '/cards/icici.jpg' }, { bank: 'Axis Bank', img: '/cards/axis.jpg' }, { bank: 'Kotak Bank', img: '/cards/kotak.jpg' }, { bank: 'Yes Bank', img: '/cards/yes.jpg' }, ];
+
+export default function HomePage() { const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+const handleSubmit = (e) => { e.preventDefault(); alert('Thank you! We will contact you soon.'); setFormData({ name: '', email: '', message: '' }); };
+
+return ( <div className="min-h-screen bg-gray-100"> <header className="bg-blue-900 text-white p-6 shadow-md"> <h1 className="text-3xl font-bold text-center">Best Credit Cards in India</h1> <p className="text-center mt-2">Apply Now and Get Exciting Offers!</p> </header>
+
+<section className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+    {creditCards.map((card, index) => (
+      <Card key={index} className="rounded-2xl shadow hover:shadow-xl transition">
+        <CardContent className="p-4">
+          <img src={card.img} alt={card.bank} className="w-full h-48 object-cover rounded-xl" />
+          <h2 className="text-xl font-semibold text-center mt-2">{card.bank}</h2>
+          <Button className="w-full mt-3">Apply Now</Button>
+        </CardContent>
+      </Card>
+    ))}
+  </section>
+
+  <section className="p-6 bg-white mt-10 max-w-4xl mx-auto rounded-2xl shadow">
+    <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+    <form onSubmit={handleSubmit} className="grid gap-4">
+      <Input
+        type="text"
+        placeholder="Your Name"
+        value={formData.name}
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        required
+      />
+      <Input
+        type="email"
+        placeholder="Your Email"
+        value={formData.email}
+        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+        required
+      />
+      <Textarea
+        placeholder="Your Message"
+        value={formData.message}
+        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+        required
+      />
+      <Button type="submit">Send Message</Button>
+    </form>
+  </section>
+
+  <footer className="bg-blue-900 text-white p-4 text-center mt-10">
+    &copy; 2025 Credit Card Deals. All rights reserved.
+  </footer>
+</div>
+
+); }
